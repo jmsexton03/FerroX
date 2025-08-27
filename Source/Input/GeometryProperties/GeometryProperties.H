@@ -8,7 +8,9 @@
 #define GEOMETRY_PROPERTIES_H_
 
 #include "GeometryProperties_fwd.H"
-#include <AMReX.H>
+#ifdef AMREX_USE_EB
+#include "EmbeddedBoundaries.H"
+#endif
 #include <AMReX_REAL.H>
 #include <AMReX_GpuContainers.H>
 #include <AMReX_Vector.H>
@@ -16,9 +18,7 @@
 #include <AMReX_BoxArray.H>
 #include <AMReX_Geometry.H>
 
-#ifdef AMREX_USE_EB
-#include "EmbeddedBoundaries.H"
-#endif
+#include <AMReX.H>
 #ifdef AMREX_USE_EB
 #include <AMReX_EB2.H>
 #include <AMReX_EB2_IF.H>
@@ -28,10 +28,10 @@
 
 #include <string>
 
-class
+class 
 c_GeometryProperties
 {
-public:
+public: 
     c_GeometryProperties();
     ~c_GeometryProperties();
 
